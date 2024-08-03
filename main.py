@@ -60,6 +60,9 @@ if __name__ == '__main__':
             Button("3x4", button_press, button_release, pygame.K_b)
         ]
     ]
+    
+    # beats per minute
+    bpm = 80
 
     while running:
         # poll for events
@@ -71,6 +74,7 @@ if __name__ == '__main__':
             # end if
         # end for
         
+        # picks up the button presses
         for a_row in buttons:
             for aButton in a_row:
                 aButton.loop(events, False)
