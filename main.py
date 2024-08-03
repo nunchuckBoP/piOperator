@@ -23,6 +23,7 @@ if __name__ == '__main__':
     screen = pygame.display.set_mode((1280, 720))
     clock = pygame.time.Clock()
     running = True
+    fps = 60
 
     record_button = Button("Record", None, None, pygame.K_q)
 
@@ -62,7 +63,7 @@ if __name__ == '__main__':
     ]
     
     # beats per minute
-    bpm = 80
+    bpm = 120
 
     while running:
         # poll for events
@@ -89,6 +90,6 @@ if __name__ == '__main__':
         # flip() the display to put your work on screen
         pygame.display.flip()
 
-        clock.tick(60)  # limits FPS to 60
+        clock.tick(fps)  # limits FPS to 60
 
     pygame.quit()

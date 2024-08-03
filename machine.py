@@ -62,5 +62,12 @@ class GameEngine(StateMachine):
         playing.to(playing_sampling)
     )
     
+    def isPlaying(self):
+        if self.current_state == playing | self.current_state == playing_record | \
+            self.current_state == playing_sampling:
+                return True
+        else:
+            return False
+    
 # end of system class
     
