@@ -18,6 +18,8 @@ class Button(object):
         self.state = STATE_RELEASED
         self.key = keyboard_key
         self.__keystate__ = False # latching keystate for keyboard button
+        self.sound = None
+        self.fx = None
     
     def __on_press__(self):
         #print("%s key pressed" % self.name)
@@ -58,6 +60,24 @@ class Button(object):
         elif self.__keystate__ == False and override_value == False:
             self.setState(STATE_RELEASED)
         # end if
+    # end blip 
+    
+    def get_sound(self):
+        return self.sound
+    # end get_sound
+    
+    def get_fx(self):
+        return self.fx
+    # end get_fx
+    
+    def set_sound(self, file_path):
+        # this method assigns a sound to the button
+        self.sound = file_path
+    # end set_sound
         
-    # end blip  
+    def set_fx(self, fx_name):
+        # this assigns 
+        self.fx_name = fx_name
+    # set_fx
+        
 # end class
