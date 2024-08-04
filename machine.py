@@ -35,10 +35,16 @@ class GameEngine(StateMachine):
     playing_record = State() # playing and recording button presses
     playing_sampling = State() # playing and sampling mic
     sampling = State() # stopped and sampling sound with mic
+    liveplay = State() # liveplay mode - play all sounds immediately
     
     # sets of the events of the state
     play_pb = (
         stopped.to(playing)
+    )
+    liveplay_pb = (
+        stopped.to(liveplay) | 
+        playing.to(liveplay) |
+        playing_record.to(liveplay)
     )
     record_pb = (
         setup.to(stopped) | 
@@ -63,6 +69,7 @@ class GameEngine(StateMachine):
     )
     
     def isPlaying(self):
+        # checks to see if the loop is looping
         if self.current_state == playing | self.current_state == playing_record | \
             self.current_state == playing_sampling:
                 return True
