@@ -2,12 +2,6 @@ from statemachine import StateMachine, State
 
 # Finite State Machine
 
-# machine states
-SETUP = 0
-IDLE = 1
-PLAYING = 2
-PLAYING_RECORD = 3
-
 class gListener(object):
     
     def __init__(self, name):
